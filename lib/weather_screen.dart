@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:wearther_app/additional_info_item.dart';
+import 'package:wearther_app/hourly_forecast_item.dart';
 
 class WeatherScreen extends StatelessWidget {
   const WeatherScreen({super.key});
@@ -63,45 +65,36 @@ class WeatherScreen extends StatelessWidget {
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
-            Row(
-              children: [
-                SizedBox(
-                  child: Card(
-                    elevation: 6,
-                    child: Container(
-                      width: 100,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(18),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
 
-                        child: Column(
-                          children: [
-                            Text(
-                              '03:00',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(height: 8),
-                            Icon(Icons.cloud, size: 32),
-                            const SizedBox(height: 8),
-                            Text('320.12'),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+            // weather forcast cards
+            const SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  HourlyForcastItem(),
+                  HourlyForcastItem(),
+                  HourlyForcastItem(),
+                  HourlyForcastItem(),
+                  HourlyForcastItem(),
+                ],
+              ),
+            ),
+
+            // additional information
+            const SizedBox(height: 20),
+            const Text(
+              'Additional Information',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 16),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                AdditionalInfoItem(),
+                AdditionalInfoItem(),
+                AdditionalInfoItem(),
               ],
             ),
-            // weather forcast cards
-            const Placeholder(fallbackHeight: 150),
-            const SizedBox(height: 20),
-            // additional information
-            const Placeholder(fallbackHeight: 150),
           ],
         ),
       ),
