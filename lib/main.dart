@@ -10,6 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: const WeatherScreen());
+    return MaterialApp(
+      theme: ThemeData.dark(useMaterial3: true),
+      home: const WeatherScreen(),
+    );
   }
 }
