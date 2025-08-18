@@ -21,7 +21,6 @@ class HourlyForcastItem extends StatelessWidget {
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(18)),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-
             child: Column(
               children: [
                 Text(
@@ -30,11 +29,13 @@ class HourlyForcastItem extends StatelessWidget {
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 8),
                 Icon(icon, size: 32),
                 const SizedBox(height: 8),
-                Text(temperature),
+                Text('$temperature K'),
               ],
             ),
           ),
